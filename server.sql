@@ -20,8 +20,9 @@ CREATE TABLE IF NOT EXISTS starers (
 )
 
 CREATE TABLE IF NOT EXISTS reminders (
-	guild_id BIGINT PRIMARY KEY,
-	user_id  BIGINT,
-	reminder_text VARCHAR(100), -- should be enough...
-	expires		  TIMESTAMP
+	guild_id 		BIGINT PRIMARY KEY,
+	user_id  		BIGINT,
+	channel_id		BIGINT,
+	reminder_text 		VARCHAR(100), -- should be enough...
+	expires		  	TIMESTAMP
 )
