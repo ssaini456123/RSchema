@@ -18,3 +18,10 @@ CREATE TABLE IF NOT EXISTS starers (
     user_id         BIGINT,
     msg_id          BIGINT
 )
+
+CREATE TABLE IF NOT EXISTS reminders (
+	guild_id BIGINT PRIMARY KEY,
+	user_id  BIGINT,
+	reminder_text VARCHAR(100), -- should be enough...
+	expires		  TIMESTAMP
+)
