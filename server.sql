@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS starers (
 )
 
 CREATE TABLE IF NOT EXISTS reminders (
-	reminder_uid 		SERIAL 			PRIMARY KEY,
+	reminder_uid 		SERIAL 			PRIMARY KEY, -- (pk)
 	user_id 		BIGINT			NOT NULL,
 	guild_id		BIGINT 			NOT NULL,
 	channel_id 		BIGINT 			NOT NULL,
