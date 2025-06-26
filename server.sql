@@ -20,9 +20,13 @@ CREATE TABLE IF NOT EXISTS starers (
 )
 
 CREATE TABLE IF NOT EXISTS reminders (
-	guild_id 		BIGINT PRIMARY KEY,
-	user_id  		BIGINT,
-	channel_id		BIGINT,
-	reminder_text 		VARCHAR(100), -- should be enough...
-	expires		  	TIMESTAMP
-)
+	reminder_uid 		SERIAL 			PRIMARY KEY,
+	user_id 		BIGINT			NOT NULL,
+	guild_id		BIGINT 			NOT NULL,
+	channel_id 		BIGINT 			NOT NULL,
+	created_at 		TIMESTAMP 		DEFAULT (now() at time zone 'utc'),
+	expires_on 		TIMESTAMP,
+	user_message 		VARCHAR(100) 		-- This should be enough.
+);
+
+DELETE FROM reminders WHERE expires_on < now()
